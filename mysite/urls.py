@@ -20,7 +20,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^polls/', include('polls.urls')),
     url(r'^blog/', include('beeblog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
@@ -30,4 +29,4 @@ urlpatterns += static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
 
-admin.site.site_header = 'XX后台管理'
+admin.site.site_header = '众安全后台管理'

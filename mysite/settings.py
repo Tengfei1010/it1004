@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'beeblog.apps.BeeblogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
