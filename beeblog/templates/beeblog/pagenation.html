@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-9">
+        <ul class="pagination pull-right">
+            {% if page_objects.paginator.num_pages != 1 %}
+                {% if page_objects.has_previous %}
+                    <li><a href="?page={{ contacts.previous_page_number }}">&laquo;</a></li>
+                {% endif %}
+                <li><a href="#">{{ page_objects.number }} of {{ page_objects.paginator.num_pages }}</a></li>
+
+                {% if page_objects.has_next %}
+                    <li><a href="?page={{ page_objects.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{% extends 'beeblog/index.html' %}
+
+{% block article %}
+    {% for article in page_objects %}
+        {% include 'beeblog/article_header.html' %}
+    {% endfor %}
+{% endblock %}
+
+{% block pagenation %}
+    {% include 'beeblog/pagenation.html' %}
+{% endblock %}
