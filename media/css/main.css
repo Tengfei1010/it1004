@@ -28,3 +28,7 @@ html, body {
     left: 0;
     border-top: 2px #ebebeb solid;
 }
+
+.search_tag {
+    margin-left: 10px;
+}
