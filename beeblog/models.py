@@ -39,6 +39,10 @@ class Category(CommonModel):
     category_text = models.CharField(verbose_name='分类名称',
                                      max_length=20)
 
+    # 分类1是 安全文章收集  分类2是漏洞相关  分类3是安全工具相关 分类4是自己编写
+    sub_category = models.SmallIntegerField(verbose_name='自分类',
+                                            default=1)
+
     class Meta:
         verbose_name = '文章分类'
         verbose_name_plural = '文章分类'

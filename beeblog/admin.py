@@ -5,8 +5,8 @@ from .models import Author, Category, Article
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ('category_text', 'is_valid')
-    list_display = ('category_text', 'created', 'updated', 'is_valid')
+    fields = ('category_text', 'sub_category', 'is_valid')
+    list_display = ('category_text', 'sub_category', 'created', 'updated', 'is_valid')
     list_filter = ['created', 'is_valid']
     search_fields = ['category_text']
 

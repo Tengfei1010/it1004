@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/media/css/main.css">
 </head>
 <body>
+{% load beeblog_extras %}
 <div id="wrapper">
     <div id="header">
         {% block navbar %}
@@ -28,7 +29,9 @@
                                         <span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         {% for c in categories %}
-                                            <li><a href="/blog/category/{{ c.id }}/">{{ c }}</a></li>
+                                            {% if c.sub_category == 1 %}
+                                                <li><a href="/blog/category/{{ c.id }}/">{{ c }}</a></li>
+                                            {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </li>
@@ -40,7 +43,7 @@
                                         <li><a href="#">余玄</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">漏洞播报</a></li>
+                                <li><a href="/blog/category/6/">漏洞播报</a></li>
                                 <li><a href="#">安全工具</a></li>
                                 <li><a href="#">杂记</a></li>
                                 <li><a href="#">我是谁</a></li>
@@ -79,7 +82,7 @@
                                     <a class="btn btn-info btn-xs" href="/blog/category/{{ c.id }}/">
                                         {{ c.category_text }}
                                     </a>
-                                    {% if forloop.counter == 3 %}
+                                    {% if forloop.counter|mod:3 == 0 %}
                                         <div style="margin-top: 5px;"></div>
                                     {% endif %}
                                 {% endfor %}
@@ -95,6 +98,9 @@
                                     <a class="btn btn-success btn-xs" href="/blog/author/{{ a.id }}/">
                                         {{ a.name }}
                                     </a>
+                                    {% if forloop.counter|mod:3 == 0 %}
+                                        <div style="margin-top: 5px;"></div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </nav>
@@ -131,7 +137,8 @@
     {% block footer %}
         <div id="footer">
             <div class="container">
-                <h5>Copyright © 2016</h5>
+                <h5>Copyright © 2016. </h5>
+                <span>文章由Kevin整理,如有问题请邮件到tutengfei.kevin@gmail.com.</span>
             </div>
         </div>
     {% endblock %}
