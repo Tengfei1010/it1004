@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 from django.shortcuts import render
 from django.views import generic
 
@@ -73,6 +74,26 @@ def list_author_article_view(request, author_id):
     articles = Article.query_objects.filter(author__id=author_id).all()
     paginator = Paginator(articles, PER_PAGE)  # Show 25 contacts per page
 
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        articles = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        articles = paginator.page(paginator.num_pages)
+    return my_render(request, 'beeblog/list.html', {
+        'page_objects': articles
+    })
+
+
+def list_search_article_view(request):
+    search_query = request.GET.get('search_query')
+    articles = Article.query_objects.filter(
+        title__icontains=search_query
+    ).all()
+    paginator = Paginator(articles, PER_PAGE)  # Show 25 contacts per page
     page = request.GET.get('page')
     try:
         articles = paginator.page(page)

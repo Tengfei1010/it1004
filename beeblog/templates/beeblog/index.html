@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>最近安全资料收集</title>
+    <meta name="description" content="最新安全相关信息,漏洞信息和个人安全学习记录.">
+    <meta name="keywords" content="安全信息,安全,漏洞,安全工具,安全媒体,安全快讯,安全笔记">
+    <meta name="author" content="涂腾飞 <tutengfei.kevin@gmail.com>">
     <link rel="icon" href="/media/img/blog.ico">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,7 +21,7 @@
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="/blog">Top101</a>
+                            <a class="navbar-brand" href="/"><img style="width: 100px; height: 35px;" src="/media/img/my-site-logo.png"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,13 +47,13 @@
                                     </ul>
                                 </li>
                                 <li><a href="/blog/category/6/">漏洞播报</a></li>
-                                <li><a href="#">安全工具</a></li>
-                                <li><a href="#">杂记</a></li>
+                                <li><a href="/blog/category/7/">安全工具</a></li>
+                                <li><a href="/blog/category/8/">杂记</a></li>
                                 <li><a href="#">我是谁</a></li>
                             </ul>
-                            <form class="navbar-form navbar-right" role="search">
+                            <form class="navbar-form navbar-right" action="/blog/search" method="get" role="search">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" name="search_query" class="form-control" placeholder="Search">
                                 </div>
                                 <button type="submit" class="btn btn-default">搜索</button>
                             </form>
@@ -135,10 +138,11 @@
     </div>
 
     {% block footer %}
+        <div style="min-height: 200px;"></div>
         <div id="footer">
-            <div class="container">
+            <div class="container" style="padding-top: 20px;">
                 <h5>Copyright © 2016. </h5>
-                <span>文章由Kevin整理,如有问题请邮件到tutengfei.kevin@gmail.com.</span>
+                <span>文章由Kevin整理,如有问题可以发邮件到<a href="mailto:tutengfei.kevin@gmail.com" target="_top">我的邮箱</a>.</span>
             </div>
         </div>
     {% endblock %}

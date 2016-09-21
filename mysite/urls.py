@@ -18,7 +18,10 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from .views import index
+
 urlpatterns = [
+    url(r'^$', index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('beeblog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
