@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+it1004web/it1004web/__pycache__/
+it1004web/nohup.out
+it1004web/web/__pycache__/
