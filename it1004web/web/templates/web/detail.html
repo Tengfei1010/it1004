@@ -1,0 +1,19 @@
+{% extends 'web/index.html' %}
+
+{% block  article %}
+    {% include 'web/article_header.html' %}
+    <div>
+        <div class="content">
+            {% if article.author.name != 'kevin' %}
+            <div>
+                <h5><var>郑重提醒: 本文收录于@<a href="{{ article.author.url }}">{{ article.author.name }}</a>,
+                    版权归@<a href="{{ article.author.url }}">{{ article.author.name }}</a>所有.</var></h5>
+            </div>
+            {% endif %}
+            <div>
+               {{ article.content | safe }}
+            </div>
+        </div>
+    </div>
+    <hr>
+{% endblock %}

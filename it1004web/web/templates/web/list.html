@@ -1,0 +1,11 @@
+{% extends 'web/index.html' %}
+
+{% block article %}
+    {% for article in page_objects %}
+        {% include 'web/article_header.html' %}
+    {% endfor %}
+{% endblock %}
+
+{% block pagenation %}
+    {% include 'web/pagenation.html' %}
+{% endblock %}
