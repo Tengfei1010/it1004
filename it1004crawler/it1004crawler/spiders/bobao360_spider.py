@@ -47,17 +47,18 @@ class FreeBufSpider(scrapy.Spider):
         article_item['title'] = article.xpath(
             '//*[@id="article_box"]/h2/text()').extract()[0]
         # time format 2010-04-20 10:07:30
-        article_time = article.xpath(
-            '//*[@id="article_box"]/p[1]/span[1]/text()').extract()[0]
-        article_item['issue_time'] = datetime.strptime(
-            article_time, self.time_format)
+        # //*[@id="article_box"]/p[1]/span[1]
+        # article_time = article.css('span[class=time] ::text').extract_first()
+        # print(article_time)
+        # article_item['issue_time'] = datetime.strptime(
+        #     article_time, self.time_format)
         article_item['url'] = encode_utf8(response.url)
         article_item['url_md5'] = get_md5_digest(response.url)
         article_item['author'] = self.author
 
         content = response.xpath(
             '/html/body/div[2]/div[2]/div[2]/div[1]/div'
-        ).extract()
+        ).extract()[0]
         soup = BeautifulSoup(content, 'html.parser')
         # delete some div
         soup.h2.extract()
