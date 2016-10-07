@@ -3,6 +3,8 @@
 """
  * Created by kevin on 9/21/16.
 """
+import urllib
+
 from django import template
 
 register = template.Library()
@@ -22,3 +24,10 @@ def mod(value, arg):
         return int(value) % int(arg)
     except:
         return None
+
+
+@register.simple_tag(name='url_replace')
+def url_replace(request, field, value):
+    dict_ = request.GET.copy()
+    dict_[field] = value
+    return dict_.urlencode()
