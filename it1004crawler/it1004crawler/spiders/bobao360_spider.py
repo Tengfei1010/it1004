@@ -56,12 +56,14 @@ class FreeBufSpider(scrapy.Spider):
         article_item['url_md5'] = get_md5_digest(response.url)
         article_item['author'] = self.author
 
-        content = response.xpath(
-            '/html/body/div[2]/div[2]/div[2]/div[1]/div'
-        ).extract()[0]
+        # //*[@id="article_box"]
+        content = response.xpath('//*[@id="article_box"]').extract()[0]
         soup = BeautifulSoup(content, 'html.parser')
         # delete some div
         soup.h2.extract()
+        if soup.find('p', class_='article-msg'):
+            soup.find('p', class_='article-msg').extract()
+
         soup.find('div', class_='article-msg').extract()
         article_item['content'] = str(soup)
         yield article_item
