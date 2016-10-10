@@ -10,6 +10,10 @@ iframe {
     height: 500px;
 }
 
+img {
+    max-width: 840px;
+}
+
 #article-header span {
     font-size: x-small;
 }
