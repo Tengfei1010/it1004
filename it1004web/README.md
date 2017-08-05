@@ -21,7 +21,7 @@
 ##### 3. deploy it
 
     $ python manage.py creatsuperuser
-    $ python manage.py syncdb
+    $ python manage.py migrate
     $ gunicorn mysite.wsgi:application --bind example.com:80
  
 ## please enjoy it ~ 

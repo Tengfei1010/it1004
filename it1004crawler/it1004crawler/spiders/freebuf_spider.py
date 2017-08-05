@@ -43,7 +43,7 @@ class FreeBufSpider(scrapy.Spider):
         article_item['title'] = article.css('div.title h2::text').extract_first()
         # time format 2016-09-25
         article_time = article.xpath(
-            '/html/body/div[2]/div[1]/div[1]/div[1]/div/div[1]/div/span[3]/text()'
+            '//*[@id="getWidth"]/div[1]/div/div[1]/div/span[3]/text()'
         ).extract()[0]
         article_item['issue_time'] = datetime.strptime(article_time, self.time_format)
         article_item['url'] = encode_utf8(response.url)
